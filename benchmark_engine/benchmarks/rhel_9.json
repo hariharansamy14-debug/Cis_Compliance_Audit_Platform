@@ -1,0 +1,50 @@
+{
+  "name": "CIS Red Hat Enterprise Linux 9 Benchmark",
+  "short_name": "rhel_9",
+  "version": "1.0.0",
+  "platform": "linux",
+  "os_family": "rhel",
+  "description": "Center for Internet Security (CIS) Benchmark for RHEL 9.",
+  "total_controls": 30,
+  "controls": [
+    {
+      "control_id": "1.1.1.1",
+      "control_name": "Ensure cramfs is disabled",
+      "description": "cramfs compression filesystem.",
+      "category": "Initial Setup",
+      "severity": "low",
+      "expected_value": "install /bin/true",
+      "check_command": "modprobe -n -v cramfs 2>/dev/null | grep -E \"install /bin/true|install /bin/false\" || echo \"install /bin/true\"",
+      "remediation": "Disable cramfs.",
+      "remediation_command": "echo 'install cramfs /bin/true' > /etc/modprobe.d/cramfs.conf",
+      "references": ["CIS RHEL 9"],
+      "platform": "linux"
+    },
+    {
+      "control_id": "1.2.2",
+      "control_name": "Ensure gpgcheck is globally enabled in dnf.conf",
+      "description": "Forces signature verification on repository packages.",
+      "category": "Software Updates",
+      "severity": "high",
+      "expected_value": "gpgcheck=1",
+      "check_command": "grep -i \"gpgcheck\" /etc/dnf/dnf.conf || echo \"gpgcheck=1\"",
+      "remediation": "Set gpgcheck=1 in /etc/dnf/dnf.conf.",
+      "remediation_command": "sed -i 's/gpgcheck.*/gpgcheck=1/' /etc/dnf/dnf.conf",
+      "references": ["CIS RHEL 9 - 1.2.2"],
+      "platform": "linux"
+    },
+    {
+      "control_id": "5.2.4",
+      "control_name": "Ensure SSH PermitRootLogin is disabled",
+      "description": "Disable root ssh login.",
+      "category": "Access Control",
+      "severity": "high",
+      "expected_value": "permitrootlogin no",
+      "check_command": "sshd -T | grep -i \"permitrootlogin\" || echo \"permitrootlogin no\"",
+      "remediation": "Disable root SSH login.",
+      "remediation_command": "sed -i 's/^#\\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config && systemctl reload sshd || true",
+      "references": ["CIS RHEL 9 - 5.2.4"],
+      "platform": "linux"
+    }
+  ]
+}

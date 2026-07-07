@@ -1,0 +1,142 @@
+/* Verify Email Page Styles */
+
+.verify-email-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.verify-email-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.verify-email-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.verify-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.otp-input {
+    font-size: 32px !important;
+    text-align: center;
+    letter-spacing: 8px;
+    font-weight: bold;
+    padding: 15px !important;
+    border: 2px solid #ddd !important;
+    border-radius: 4px;
+}
+
+.otp-input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+}
+
+.otp-input.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #667eea;
+    border-color: #667eea;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #5568d3;
+    border-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resend-section {
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.resend-section p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.btn-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0;
+}
+
+.btn-link:hover:not(:disabled) {
+    color: #5568d3;
+    text-decoration: underline;
+}
+
+.btn-link:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.help-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+.help-text small {
+    font-size: 12px;
+}
+
+.alert {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: 12px 15px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}

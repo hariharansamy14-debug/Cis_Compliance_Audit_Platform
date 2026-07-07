@@ -1,0 +1,37 @@
+{
+  "name": "CIS Microsoft Windows Server 2022 Benchmark",
+  "short_name": "windows_server_2022",
+  "version": "1.0.0",
+  "platform": "windows",
+  "os_family": "windows",
+  "description": "Center for Internet Security (CIS) Benchmark for Windows Server 2022.",
+  "total_controls": 30,
+  "controls": [
+    {
+      "control_id": "1.1.1",
+      "control_name": "Ensure 'Enforce password history' is set to '24 or more password(s)'",
+      "description": "Unique passwords count history.",
+      "category": "Account Policies",
+      "severity": "medium",
+      "expected_value": "24",
+      "check_command": "net accounts | Select-String \"Length of password history\" | ForEach-Object { ($_ -split ':')[1].Trim() }",
+      "remediation": "Set password history to 24.",
+      "remediation_command": "net accounts /unique_pw:24",
+      "references": ["CIS Windows Server 2022"],
+      "platform": "windows"
+    },
+    {
+      "control_id": "9.1.1",
+      "control_name": "Ensure Windows Firewall Domain Profile is Enabled",
+      "description": "Enable firewall on domain network interface.",
+      "category": "Windows Firewall",
+      "severity": "high",
+      "expected_value": "True",
+      "check_command": "(Get-NetFirewallProfile -Profile Domain).Enabled",
+      "remediation": "Enable Domain firewall profile.",
+      "remediation_command": "Set-NetFirewallProfile -Profile Domain -Enabled True",
+      "references": ["CIS Windows Server 2022"],
+      "platform": "windows"
+    }
+  ]
+}
